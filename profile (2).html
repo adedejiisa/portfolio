@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#000A23">
+    <link rel="icon" type="image/png" href="/uploads/favicon.png">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="profile2.css">
+</head>
+<body>
+
+  <div class="coverer">
+
+    <div class="sub-coverer">
+
+  <!-- Profile Placeholder-->
+  <div class="profile-placeholder">
+    <div class="profile-menu">
+    <a href="settings.html"><svg id="hamburgerIcon" class="hamburger" width="24" height="24" viewBox="0 0 24 24"
+     fill="none" xmlns="http://www.w3.org/2000/svg"
+     stroke="#000A23" stroke-width="2" stroke-linecap="round">
+
+  <line x1="3" y1="6" x2="21" y2="6"/>
+  <line x1="3" y1="12" x2="21" y2="12"/>
+  <line x1="3" y1="18" x2="21" y2="18"/>
+
+</svg></a>
+
+   <button id="openPublicViewSettings" class="openPublicViewSettings">︙</button>   </div>
+    <div class="profile-avatar">
+      <!--<img id="profilePic" src="https://afrisocial-backend.onrender.com/uploads/images/africa.png" alt="profile picture">-->
+      <img src="logo.jpg" alt="">
+    </div>
+    <h2 id="fullName">Full Name</h2>
+    <div class="username-container">
+      <span id="username">@username</span>
+  <svg id="verifiedBadge" class="verified-badge" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10" fill="#1DA1F2" />
+    <path d="M9 12l2 2 4-4" stroke="white" stroke-width="2" fill="none" />
+  </svg>
+    <span id="country">🌍</span>
+    </div>
+         <section class="bio">
+       <p id="bio">Bio</p>
+     </section>
+     <p class="joined" id="joined">Joined: --</p>
+  </div>
+  
+  <!-- User stats -->
+      <div class="profile-stats">
+      
+      <div class="followers-stats">
+        <span id="followersCount" class="stat-number" style="font-weight: bold;">0</span>
+        <span id="openFollowersTab">Followers</span>
+      </div>
+      
+      <div class="following-stats">
+        <span id="followingCount" class="stat-number" style="font-weight: bold;">0</span>
+        <span id="openFollowingTab">Following</span>
+      </div>
+      
+      <div class="love-stats">
+        <span id="likesCount" class="stat-number" style="font-weight: bold;">0</span>
+        <span>Likes</span>
+      </div>
+      
+      <div class="starup-stats">
+        <span id="starsCount" class="stat-number" style="font-weight: bold;">0</span>
+        <span>Stars</span>
+      </div>
+      
+    </div>
+  <!-- profile action botton -->
+   <div class="profile-action-button">
+
+    <!-- Public View -->
+    <div class="public-view">
+    <button id="followBtn" style="display: block;">Follow</button>
+    <button id="messageBtn" type="button">Message</button>
+    </div>
+       
+     <!-- Owner View -->
+     <div class="owner-view">
+      <button id="openEditContainer" style="border: 2px solid dodgerblue; color: white; background-color: dodgerblue;">Edit Profile</button>
+     </div>
+
+   </div>
+    </div>
+
+    <!-- EDIT PROFILE FORM -->
+<div class="edit-profile-container" id="editContainer">
+  <div class="editModalHeader">
+  <h2>Edit Profile</h2>
+  <span id="closeEditContainer">&times;</span>
+  </div>
+  <form id="editProfileForm">
+    <!-- Profile Image -->
+    <div class="edit-image-section">
+     
+      <!--<img data-user-profile src="https://afrisocial-backend.onrender.com/uploads/images/africa.png" alt="profile picture" id="profilePreview">-->
+      <img src="logo.jpg" alt="">
+      <label class="change-picture">
+        +
+        <input type="file" accept="image/*" id="profileImage" name="profilePicture">
+      </label>
+        
+    </div>
+
+    <!-- Full Name -->
+    <label>Full Name</label>
+    <input type="text" placeholder="Enter your name" id="editFullName" required>
+
+    <!-- Username -->
+    <label>Username</label>
+    <input type="text" placeholder="@username" id="editUsername" required>
+
+    <!-- Bio -->
+    <label>Bio</label>
+    <input placeholder="Tell us about yourself..." id="editBio">
+
+    <!-- Country -->
+    <label>Country</label>
+    <select id="editCountry">
+      <option value="">-- Select Your Country --</option>
+<option value="dz">🇩🇿 Algeria</option>
+<option value="ao">🇦🇴 Angola</option>
+<option value="bj">🇧🇯 Benin</option>
+<option value="bw">🇧🇼 Botswana</option>
+<option value="bf">🇧🇫 Burkina Faso</option>
+<option value="bi">🇧🇮 Burundi</option>
+<option value="cv">🇨🇻 Cape Verde</option>
+<option value="cm">🇨🇲 Cameroon</option>
+<option value="cf">🇨🇫 Central African Republic</option>
+<option value="td">🇹🇩 Chad</option>
+<option value="km">🇰🇲 Comoros</option>
+<option value="cd">🇨🇩 Democratic Republic of the Congo</option>
+<option value="cg">🇨🇬 Republic of the Congo</option>
+<option value="ci">🇨🇮 Côte d’Ivoire</option>
+<option value="dj">🇩🇯 Djibouti</option>
+<option value="eg">🇪🇬 Egypt</option>
+<option value="gq">🇬🇶 Equatorial Guinea</option>
+<option value="er">🇪🇷 Eritrea</option>
+<option value="sz">🇸🇿 Eswatini</option>
+<option value="et">🇪🇹 Ethiopia</option>
+<option value="ga">🇬🇦 Gabon</option>
+<option value="gm">🇬🇲 Gambia</option>
+<option value="gh">🇬🇭 Ghana</option>
+<option value="gn">🇬🇳 Guinea</option>
+<option value="gw">🇬🇼 Guinea-Bissau</option>
+<option value="ke">🇰🇪 Kenya</option>
+<option value="ls">🇱🇸 Lesotho</option>
+<option value="lr">🇱🇷 Liberia</option>
+<option value="ly">🇱🇾 Libya</option>
+<option value="mg">🇲🇬 Madagascar</option>
+<option value="mw">🇲🇼 Malawi</option>
+<option value="ml">🇲🇱 Mali</option>
+<option value="mr">🇲🇷 Mauritania</option>
+<option value="mu">🇲🇺 Mauritius</option>
+<option value="ma">🇲🇦 Morocco</option>
+<option value="mz">🇲🇿 Mozambique</option>
+<option value="na">🇳🇦 Namibia</option>
+<option value="ne">🇳🇪 Niger</option>
+<option value="ng">🇳🇬 Nigeria</option>
+<option value="rw">🇷🇼 Rwanda</option>
+<option value="st">🇸🇹 São Tomé and Príncipe</option>
+<option value="sn">🇸🇳 Senegal</option>
+<option value="sc">🇸🇨 Seychelles</option>
+<option value="sl">🇸🇱 Sierra Leone</option>
+<option value="so">🇸🇴 Somalia</option>
+<option value="za">🇿🇦 South Africa</option>
+<option value="ss">🇸🇸 South Sudan</option>
+<option value="sd">🇸🇩 Sudan</option>
+<option value="tz">🇹🇿 Tanzania</option>
+<option value="tg">🇹🇬 Togo</option>
+<option value="tn">🇹🇳 Tunisia</option>
+<option value="ug">🇺🇬 Uganda</option>
+<option value="zm">🇿🇲 Zambia</option>
+<option value="zw">🇿🇼 Zimbabwe</option>
+             </select>
+    <!-- Save Change Button -->
+    <button id="saveProfileBtn">Save Change</button>
+  </form>
+</div>
+
+
+     <!-- Followers tab -->
+    <div class="followers-tab" id="followersTab">
+      <div class="followersTabHead">
+      <h2>Followers</h2>
+      <span id="closeFollowersTab">&times;</span>
+      </div>
+      <input type="search" placeholder="search followers...">
+      <div class="followers-tab-container">
+        <div id="followersList"></div>
+      </div>
+    </div>
+
+    <!-- Following tab -->
+     <div class="following-tab" id="followingTab">
+       <div class="followingTabHead">
+      <h2>Following</h2>
+      <span id="closeFollowingTab">&times;</span>
+       </div>
+      <input type="search" placeholder="search following...">
+      <Div class="following-tab-container">
+        <div id="followingList"></div>
+      </Div>
+     </div>
+
+     <!-- Public view settings -->
+      <div class="public-view-settings" id="publicViewSettings">
+        <ul>
+          <li style="color: red;">Block this user</li>
+          <li style="color: red;">Report this user</li>
+          <li id="closePublicViewSettings" class="closePublicViewSettings">Cancel</li>
+        </ul>
+      </div>
+
+      <!-- Profile Tab -->
+      <div class="profile-tabs">
+  <button class="tab-btn active" data-tab="posts">Posts</button>
+  <button class="tab-btn" data-tab="explore">Explore</button>
+</div>
+
+<div class="profile-tab-content">
+  <div id="postsTab" class="tab-content active"></div>
+  <div id="exploreTab" class="tab-content"></div>
+</div>
+
+      <!-- Comment modal -->
+    <div id="commentModal" class="comment-modal">
+  <div class="comment-box">
+    <div class="comment-header">
+      <h3>Comments</h3>
+      <span id="closeCommentModal">&times;</span>
+    </div>
+
+    <div id="commentList" class="comment-list">
+      <!-- comments go here -->
+    </div>
+
+    <div class="comment-input">
+      <input
+        type="text"
+        id="commentInput"
+        placeholder="Write a comment..."
+      />
+      <button id="sendCommentBtn">Send</button>
+    </div>
+      </div>
+  </div>
+</div>
+
+      <div id="notificationBox"></div>
+
+     <footer>
+  <nav class="bottom-nav">
+    <a href="feed.html" class="bnav-item">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none"
+        stroke="currentColor" stroke-width="2.2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 10.5C4 9.9 4.3 9.3 4.8 8.9L11.3 3.7C11.7 3.4
+          12.3 3.4 12.7 3.7L19.2 8.9C19.7 9.3 20 9.9 20
+          10.5V18.5C20 19.6 19.1 20.5 18 20.5H6C4.9
+          20.5 4 19.6 4 18.5V10.5Z"/>
+        <path d="M9 20.5V14.5C9 13.9 9.4 13.5 10
+          13.5H14C14.6 13.5 15 13.9 15 14.5V20.5"/>
+      </svg>
+      <span>Home</span>
+    </a>
+    <a href="/vybze.html" class="bnav-item">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none"
+        stroke="currentColor" stroke-width="2.2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="4"/>
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M12 9V3M12 21v-6M9 12H3M21 12h-6"/>
+      </svg>
+      <span>Vybze</span>
+    </a>
+    <a href="explore.html" class="bnav-item">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none"
+        stroke="currentColor" stroke-width="2.2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <polygon points="16 8 14 14 8 16 10 10 16 8"/>
+      </svg>
+      <span>AfriExplore</span>
+    </a>
+    <a href="message.html" class="bnav-item" id="chatNavItem">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none"
+        stroke="currentColor" stroke-width="2.2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1
+          2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      <span>Chats</span>
+      <span id="messageBadge" class="badge" style="display:none;">0</span>
+    </a>
+    <a href="profile.html" class="bnav-item active">
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none"
+        stroke="currentColor" stroke-width="2.2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <circle cx="12" cy="9" r="3"/>
+        <path d="M6.5 18C7.5 15.5 9.7 14 12 14C14.3
+          14 16.5 15.5 17.5 18"/>
+      </svg>
+      <span>Profile</span>
+    </a>
+  </nav>
+
+    </footer>
+    </div>
+
+    <div class="overlay hidden" id="overlay"></div> 
+    <script src="/main.js" type="module"></script>
+     <script src="js/theme.js"></script>
+     <script src="profile.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
