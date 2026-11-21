@@ -21,6 +21,12 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Prepare www folder
+        run: |
+          mkdir -p www
+          cp -r *.html *.css *.js *.json *.png *.jpg *.jpeg *.svg www/ 2>/dev/null || true
+          ls www/
+
       - name: Install Capacitor
         run: |
           npm init -y
@@ -28,7 +34,7 @@ jobs:
 
       - name: Init Capacitor
         run: |
-          npx cap init "Porta" "com.adedeji.porta" --web-dir="."
+          npx cap init "Porta" "com.adedeji.porta" --web-dir="www"
 
       - name: Add Android
         run: npx cap add android
