@@ -1,18 +1,25 @@
-name: Deploy App
+name: Build APK
 on:
   push:
     branches: [ main ]
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+  workflow_dispatch:
+
 jobs:
-  deploy:
+  build-apk:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+
+      - name: Build APK from HTML
+        uses: Narottam04/action-capacitor-android@v1
         with:
-          path: '.'
-      - uses: actions/deploy-pages@v4 
+          appName: 'Porta'
+          appId: 'com.adedeji.porta'
+          webDir: '.'
+          # if your index.html dey inside folder, change '.' to that folder name
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Porta-APK
+          path: '*.apk'
