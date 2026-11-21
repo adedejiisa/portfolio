@@ -10,16 +10,43 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build APK from HTML
-        uses: Narottam04/action-capacitor-android@v1
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          appName: 'Porta'
-          appId: 'com.adedeji.porta'
-          webDir: '.'
-          # if your index.html dey inside folder, change '.' to that folder name
+          node-version: '20'
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Capacitor
+        run: |
+          npm init -y
+          npm install @capacitor/core @capacitor/cli @capacitor/android
+
+      - name: Init Capacitor
+        run: |
+          npx cap init "Porta" "com.adedeji.porta" --web-dir="."
+
+      - name: Add Android
+        run: npx cap add android
+
+      - name: Sync Web Files
+        run: npx cap sync android
+
+      - name: Build APK
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: Porta-APK
-          path: '*.apk'
+          path: android/app/build/outputs/apk/debug/app-debug.apk
